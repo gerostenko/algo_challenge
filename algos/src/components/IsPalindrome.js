@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 
 class IsPalindrome extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-            result: null,
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-    }
+   
+    state = {
+        value: '',
+        result: null,
+    };
 
-    handleChange(event) {
+    handleChange = (event) => {
         this.setState({value: event.target.value});
     }
     
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         event.preventDefault();
         this.setState(prevState => ({
     		result: this.isPalindrome(prevState.value)
@@ -37,23 +33,18 @@ class IsPalindrome extends Component {
     }
 
     outputResult(result) {
-        if(result === null) 
-            return;
-        else {
-            return result === false ? "This isn't a palindrome" :
-            "It is a palindrome!"
-        }
+        return result === null ? null : result === false ? "This isn't a palindrome" : "It is a palindrome!";
     }
 
     render() {
         return <div> 
-            <form  onSubmit={this.handleSubmit}>
-                <label>Name: 
-                    <input type="text" value={this.state.value} onChange={this.handleChange} />
+            <form  onSubmit={(event) => this.handleSubmit(event)}>
+                <label>Enter String:  
+                    <input type="text" value={this.state.value} onChange={(event) => this.handleChange(event)} />
                 </label>
                 <input type="submit" value="Submit" />
             </form>
-            <h3>Result: {this.outputResult(this.state.result)}</h3>
+            {this.state.result !== null && <h3>Result: {this.outputResult(this.state.result)}</h3>}
         </div>
     }
 }
