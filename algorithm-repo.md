@@ -1,7 +1,7 @@
 Repository with algorithms:
 
-1. Is a work a palindrome: kayak in reverse letter order is kayak, it's a palindrome.
-2. Is an array of characters contain all unique characters. The same for the string.With and without usage of additional data structures.
+1. Is word a palindrome: kayak in reverse letter order is kayak, it's a palindrome. ✓
+2. Is an array of characters contain all unique characters. ✓
 3. Flatten the array of any depth.
 4. Nullify object leafs (apply it on nested objects' leafs as well)
 5. Compare arrays of objects.

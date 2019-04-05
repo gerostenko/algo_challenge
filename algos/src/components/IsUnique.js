@@ -19,21 +19,18 @@ class IsUnique extends Component {
 
     isUnique(word){
         let chars = '';
-        let result = true;
           //there are 256 characters in extended ASCII
-          if (word.length > 256)
+        if (word.length > 256)
             return false;
       
-          for (let i = 0; i < word.length; i++) {
-            if (chars.indexOf(word[i]) > -1) {
-              result = false;
-            break;
-          }
-          else {
-              chars += word[i];
-          }
-        }
-            return result;
+        for (let char of word) {
+            if(chars.indexOf(char) > -1) {
+                return false;
+            }
+            chars += char;
+        }   
+        
+        return true;
     }
 
     outputResult(result) {
