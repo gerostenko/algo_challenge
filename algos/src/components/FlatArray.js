@@ -13,8 +13,30 @@ class FlatArray extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
         this.setState(prevState => ({
-    		result: this.flatArray(JSON.parse(prevState.value))
+    		result: this.flatArray(this.parseInput(prevState.value))
         }));
+    }
+
+    parseInput(input) {
+        let result = input.replace(/'/g, '"');
+
+        try {
+            result = JSON.parse(result);
+        }
+        catch(e) {
+            return ['Error: The object is not parseable'];
+        }
+
+        if(result.indexOf('{') > -1 && result.indexOf('}') > -1) {
+            let myResult = [];
+
+            for(let i in result) {
+                myResult.push(result[i]);
+            }
+            return myResult;
+        } else {
+            return result;
+        }
     }
 
     flatArray(array){
@@ -28,7 +50,7 @@ class FlatArray extends Component {
 
     renderResult(){
         return this.state.result !== null && 
-        <h3>Result: {this.state.result.map((item, index) => <p key={index}>{item}</p>)}</h3>
+        <h3>Result: {this.state.result.map((item, index) => <p key={index}>{JSON.stringify(item)}</p>)}</h3>
     }
 
     render(){
