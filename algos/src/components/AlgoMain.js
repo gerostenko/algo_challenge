@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import IsPalindrome from './IsPalindrome';
 import IsUnique from './IsUnique';
+import FlatArray from './FlatArray';
 
 class AlgoMain extends Component {
     constructor(props) {
@@ -10,7 +11,8 @@ class AlgoMain extends Component {
         }
         this.components = {
             IsPalindrome: IsPalindrome,
-            IsUnique: IsUnique
+            IsUnique: IsUnique,
+            FlatArray: FlatArray
         };
     }
     

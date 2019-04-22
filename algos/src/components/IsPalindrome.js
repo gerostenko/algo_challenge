@@ -16,7 +16,6 @@ class IsPalindrome extends Component {
         this.setState(prevState => ({
     		result: this.isPalindrome(prevState.value)
         }));
-        
     }
 
     isPalindrome(word) {
@@ -32,7 +31,7 @@ class IsPalindrome extends Component {
         return result;
     }
 
-    outputResult(result) {
+    renderResult(result) {
         return result === null ? null : result === false ? "This isn't a palindrome" : "It is a palindrome!";
     }
 
@@ -44,7 +43,7 @@ class IsPalindrome extends Component {
                 </label>
                 <input type="submit" value="Submit" />
             </form>
-            {this.state.result !== null && <h3>Result: {this.outputResult(this.state.result)}</h3>}
+            {this.state.result !== null && <h3>Result: {this.renderResult(this.state.result)}</h3>}
         </div>
     }
 }
