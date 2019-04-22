@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import IsPalindrome from './IsPalindrome';
 import IsUnique from './IsUnique';
-import FlatArray from './FlatArray';
+import FlatArray from './FlatArray/FlatArray';
 
 class AlgoMain extends Component {
     constructor(props) {

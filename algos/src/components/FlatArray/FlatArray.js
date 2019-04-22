@@ -18,16 +18,22 @@ class FlatArray extends Component {
     }
 
     parseInput(input) {
+        let error = new Error('Error: The object is not parseable');
+
+        if (!input || !(typeof input === 'string')) return error;
+
         let result = input.replace(/'/g, '"');
 
         try {
             result = JSON.parse(result);
         }
         catch(e) {
-            return ['Error: The object is not parseable'];
+            return error;
         }
 
-        if(result.indexOf('{') > -1 && result.indexOf('}') > -1) {
+        if (!(result instanceof Array)) return error;
+
+        if(input.indexOf('{') > -1 && input.indexOf('}') > -1) {
             let myResult = [];
 
             for(let i in result) {
@@ -39,8 +45,9 @@ class FlatArray extends Component {
         }
     }
 
-    flatArray(array){
-        return array.reduce((accumulator, currentValue) => {
+    flatArray(data){
+        if (data instanceof Error) return [data.message];
+        return data.reduce((accumulator, currentValue) => {
             if (currentValue instanceof Array) {
                 return accumulator.concat(this.flatArray(currentValue));
             } 
