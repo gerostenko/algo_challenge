@@ -2,7 +2,7 @@ Repository with algorithms:
 
 1. Is word a palindrome: kayak in reverse letter order is kayak, it's a palindrome. ✓
 2. Is an array of characters contain all unique characters. ✓
-3. Flatten the array of any depth.
+3. Flatten the array of any depth. ✓
 4. Nullify object leafs (apply it on nested objects' leafs as well)
 5. Compare arrays of objects.
 6. Given two strings, check if one is a permutation of the other.
