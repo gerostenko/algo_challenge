@@ -9,6 +9,7 @@ DONE:
 2. Is an array of characters contain all unique characters.
 3. Flatten the array of any depth.
 4. Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+5. Given a string s, find the length of the longest substring without repeating characters.
 
 TO DO:
 1. Nullify object leafs (apply it on nested objects' leafs as well)
