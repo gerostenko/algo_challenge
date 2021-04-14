@@ -1,27 +1,29 @@
-import lengthOfLongestSubstring from "./index";
+import findLongestUniqueSubstring from "./index";
 
 describe("lengthOfLongestSubstring", () => {
     it("correctly treats empty string", () => {
-        expect(lengthOfLongestSubstring(" ")).toEqual(1);
+        expect(findLongestUniqueSubstring(" ")).toEqual(1);
     });
 
     it("correctly treats base cases", () => {
-        expect(lengthOfLongestSubstring("abcabcbb")).toEqual(3);
-        expect(lengthOfLongestSubstring("bbbbb")).toEqual(1);
-        expect(lengthOfLongestSubstring("pwwkew")).toEqual(3);
-        expect(lengthOfLongestSubstring("")).toEqual(0);
+        expect(findLongestUniqueSubstring("abcabcbb")).toEqual(3);
+        expect(findLongestUniqueSubstring("bbbbb")).toEqual(1);
+        expect(findLongestUniqueSubstring("pwwkew")).toEqual(3);
+        expect(findLongestUniqueSubstring("")).toEqual(0);
     });
 
     it("correctly treats a string with all unique chars", () => {
-        expect(lengthOfLongestSubstring("au")).toEqual(2);
+        expect(findLongestUniqueSubstring("au")).toEqual(2);
     });
 
     it("detecs unique string as a second substring", () => {
-        expect(lengthOfLongestSubstring("abb")).toEqual(2);
-        expect(lengthOfLongestSubstring("dvdf")).toEqual(3);
+        expect(findLongestUniqueSubstring("abb")).toEqual(2);
+        expect(findLongestUniqueSubstring("dvdf")).toEqual(3);
     });
 
     it("correctly detects unique string for longer cases", () => {
-        expect(lengthOfLongestSubstring("anviaj")).toEqual(5);
+        expect(findLongestUniqueSubstring("anviaj")).toEqual(5);
+        expect(findLongestUniqueSubstring("aabaab!bb")).toEqual(3);
     });
+
 });

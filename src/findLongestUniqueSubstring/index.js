@@ -1,4 +1,4 @@
-export default function lengthOfLongestSubstring (s) {
+export default function findLongestUniqueSubstring (s) {
     if(s.length <= 1) return s.length;
 
     let total = [];
@@ -8,11 +8,11 @@ export default function lengthOfLongestSubstring (s) {
         const char = s[i];
         const charAt = current.indexOf(char);
         if(charAt === -1) {
-            current+=char;
+            current += char;
             if(i === s.length - 1) total.push(current.length);
         } else {
             total.push(current.length);
-            current = (s[i-1] === char) ? char : (s[i-1] + char);
+            current = current.substring(charAt + 1, current.length) + char;
         }
     }
 
