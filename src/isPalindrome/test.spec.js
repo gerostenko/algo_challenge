@@ -35,5 +35,7 @@ describe("longestPalindromicSubstring", () => {
 
     it("more cases to test", () => {
         expect(longestPalindromicSubstring("aacabdkacaa")).toEqual("aca");
+        expect(longestPalindromicSubstring("aaaa")).toEqual("aaaa");
+        expect(longestPalindromicSubstring("ccc")).toEqual("ccc");
     });
 });
