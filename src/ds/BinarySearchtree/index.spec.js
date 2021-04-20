@@ -44,14 +44,12 @@ describe("BinarySearchTree", () => {
             expect(bst.root.data).toEqual(42);
             expect(bst.root.left.data).toEqual(15);
             expect(bst.root.left.right.data).toEqual(18);
-            expect(bst.root.left.right.data).toEqual(18);
             expect(bst.root.left.right.right.data).toEqual(19);
 
 
             bst.insert(20);
             expect(bst.root.data).toEqual(42);
             expect(bst.root.left.data).toEqual(15);
-            expect(bst.root.left.right.data).toEqual(18);
             expect(bst.root.left.right.data).toEqual(18);
             expect(bst.root.left.right.right.data).toEqual(19);
             expect(bst.root.left.right.right.right.data).toEqual(20);
@@ -60,7 +58,6 @@ describe("BinarySearchTree", () => {
             expect(bst.root.data).toEqual(42);
             expect(bst.root.left.data).toEqual(15);
             expect(bst.root.left.left.data).toEqual(14);
-            expect(bst.root.left.right.data).toEqual(18);
             expect(bst.root.left.right.data).toEqual(18);
             expect(bst.root.left.right.right.data).toEqual(19);
             expect(bst.root.left.right.right.right.data).toEqual(20);
@@ -81,6 +78,51 @@ describe("BinarySearchTree", () => {
             expect(bst.root.right.right.data).toEqual(45);
             expect(bst.root.right.left.data).toEqual(43);
 
+        });
+    });
+
+    describe("remove", () => {
+        let bst;
+
+        beforeEach(() => {
+            bst = new BinarySearchTree();
+            bst.insert(42);
+            bst.insert(15);
+            bst.insert(18);
+            bst.insert(19);
+            bst.insert(20);
+            bst.insert(14);
+        });
+
+        it("correctly deletes a node without children", () => {
+            bst.remove(20);
+
+            expect(bst.root.data).toEqual(42);
+            expect(bst.root.left.data).toEqual(15);
+            expect(bst.root.left.left.data).toEqual(14);
+            expect(bst.root.left.right.data).toEqual(18);
+            expect(bst.root.left.right.right.data).toEqual(19);
+            expect(bst.root.left.right.right.right).toEqual(null);
+        });
+
+        it("correctly removes a node with one child", () => {
+            bst.remove(19);
+
+            expect(bst.root.data).toEqual(42);
+            expect(bst.root.left.data).toEqual(15);
+            expect(bst.root.left.left.data).toEqual(14);
+            expect(bst.root.left.right.data).toEqual(18);
+            expect(bst.root.left.right.right.data).toEqual(20);
+        });
+
+        it("correctly removed a node wth two children", () => {
+            bst.remove(15);
+
+            expect(bst.root.data).toEqual(42);
+            expect(bst.root.left.data).toEqual(18);
+            expect(bst.root.left.left.data).toEqual(14);
+            expect(bst.root.left.right.data).toEqual(19);
+            expect(bst.root.left.right.right.data).toEqual(20);
         });
     });
 });
