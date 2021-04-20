@@ -23,57 +23,24 @@ export class BinarySearchTree
         this.root = null;
     }
 
-    // insert(data){
-    //     const newNode = new BinaryTreeNode(data);
-    //     if(this.root === null) {
-    //         this.root = newNode;
-    //         return;
-    //     }
-    //     this.insertNode(this.root, newNode);
-
-    // }
-
-    // insertNode(node, newNode){
-    //     // let currentNode = newNode.data < node.data ? node.left : node.right;
-
-    //     if(newNode.data < node.data) {
-    //         node.left === null ? node.left = newNode : this.insertNode(node.left, newNode);
-    //     } else {
-    //         node.right === null ? node.right = newNode : this.insertNode(node.right, newNode);
-    //     }
-    // }
-
-
-    //insert without using recursion
     insert(data){
         const newNode = new BinaryTreeNode(data);
         if(this.root === null) {
             this.root = newNode;
             return;
         }
-
-        let current = this.root;
-        while (current !== null) {
-            if(data < current.data) {
-                if(current.left === null) {
-                    current.left = newNode;
-                    break;
-                } else {
-                    current = current.left;
-                }
-            } else if(data > current.data){
-                if(current.right === null) {
-                    current.right = newNode;
-                    break;
-                } else {
-                    current = current.right;
-                }
-            } else {
-                break;
-            }
-        }
-
+        this.insertNode(this.root, newNode);
     }
+
+    insertNode(node, newNode){
+        // let currentNode = newNode.data < node.data ? node.left : node.right;
+        if(newNode.data < node.data) {
+            node.left === null ? node.left = newNode : this.insertNode(node.left, newNode);
+        } else {
+            node.right === null ? node.right = newNode : this.insertNode(node.right, newNode);
+        }
+    }
+
 
     // remove(data)
     // Helper function
@@ -83,4 +50,35 @@ export class BinarySearchTree
     // preorder(node)
     // postorder(node)
     // search(node, data)
+
+    //insert without using recursion
+    // insert(data){
+    //     const newNode = new BinaryTreeNode(data);
+    //     if(this.root === null) {
+    //         this.root = newNode;
+    //         return;
+    //     }
+
+    //     let current = this.root;
+    //     while (current !== null) {
+    //         if(data < current.data) {
+    //             if(current.left === null) {
+    //                 current.left = newNode;
+    //                 break;
+    //             } else {
+    //                 current = current.left;
+    //             }
+    //         } else if(data > current.data){
+    //             if(current.right === null) {
+    //                 current.right = newNode;
+    //                 break;
+    //             } else {
+    //                 current = current.right;
+    //             }
+    //         } else {
+    //             break;
+    //         }
+    //     }
+
+    // }
 }
