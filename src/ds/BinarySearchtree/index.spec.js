@@ -136,11 +136,10 @@ describe("BinarySearchTree", () => {
             expect(bst.root.left.right.right.data).toEqual(20);
         });
 
-        it("correctly sets the min node in place of the removed node if has both children with nodes on both sides", () => {
+        it("correctly sets the min node in place of the removed node if has both children present", () => {
             bst = new BinarySearchTree();
             bst.insert(42);
             bst.insert(20);
-            bst.insert(30);
             bst.insert(12);
             bst.insert(30);
             bst.insert(22);
@@ -159,5 +158,29 @@ describe("BinarySearchTree", () => {
             expect(bst.root.left.right.left.left).toEqual(null);
             expect(bst.root.left.right.left.right.data).toEqual(23);
         });
+
+        // it("correctly sets the min node in place of the removed node if has both children present with other children", () => {
+        //     bst = new BinarySearchTree();
+        //     bst.insert(42);
+        //     bst.insert(20);
+        //     bst.insert(30);
+        //     bst.insert(12);
+        //     bst.insert(22);
+        //     bst.insert(31);
+        //     bst.insert(32);
+        //     bst.insert(21);
+        //     bst.insert(23);
+
+        //     bst.remove(30);
+
+        //     expect(bst.root.data).toEqual(42);
+        //     expect(bst.root.left.data).toEqual(20);
+        //     expect(bst.root.left.left.data).toEqual(12);
+        //     expect(bst.root.left.right.data).toEqual(31);
+        //     expect(bst.root.left.right.left.data).toEqual(22);
+        //     expect(bst.root.left.right.right.data).toEqual(32);
+        //     expect(bst.root.left.right.left.left.data).toEqual(21);
+        //     expect(bst.root.left.right.left.right.data).toEqual(23);
+        // });
     });
 });
