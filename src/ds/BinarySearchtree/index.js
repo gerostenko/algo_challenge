@@ -40,7 +40,8 @@ export class BinarySearchTree
         }
     }
 
-    remove(data){
+    xremove(data)
+{
     // root is re-initialized with
     // root of a modified tree.
     this.root = this.removeNode(this.root, data);
@@ -110,17 +111,76 @@ removeNode(node, key)
 
 }
 
-//  finds the minimum node in tree
-// searching starts from given node
-findMinNode(node)
-{
-    // if left of a node is null
-    // then it must be minimum node
-    if(node.left === null)
-        return node;
-    else
-        return this.findMinNode(node.left);
-}
+    remove(data) {
+        if(this.root === null) {
+            return;
+        }
+
+        let parent;
+        let current = this.root;
+        let isLeft = false;
+        let found = false;
+
+        while(!found) { //this might need to also check for current = null
+            if(data < current.data) {
+                parent = current;
+                current = current.left;
+                isLeft = true;
+
+            } else if(data > current.data ) {
+                parent = current;
+                current = current.right;
+                isLeft = false;
+            } else {
+                found = true;
+                if(current.left === null && current.right === null) {
+                    current = null;
+                    isLeft ? parent.left = null : parent.right = null;
+                    return;
+                }
+                if(current.left === null && current.right !== null) {
+                    isLeft ? parent.left = current.right : parent.right = current.right;
+                } else if (current.left !== null && current.right === null) {
+                    isLeft ? parent.left = current.left : parent.right = current.left;
+                } else {
+                    // const minMode = this.findMinNode(current.right);
+                    // minMode.left = current.left;
+                    // isLeft ? parent.left = minMode : parent.right = minMode;
+                    const minNodeWithParent = this.findMinNodeAndItsParent(current.right);
+                    if(!minNodeWithParent.parent) {
+
+                    } else {
+                        minNodeWithParent.node.left = current.left;
+                        isLeft ? parent.left = minNodeWithParent.node : parent.right = minNodeWithParent.node;
+                    }
+
+
+                }
+            }
+        }
+    }
+
+    findMinNodeAndItsParent(node) {
+        let parent;
+        if(node.left === null)
+            return { parent, node };
+        else {
+            parent = node;
+            return { parent, node: this.findMinNode(node.left) };
+        }
+
+    }
+
+    //  finds the minimum node in tree
+    // searching starts from given node
+    findMinNode(node) {
+        // if left of a node is null
+        // then it must be minimum node
+        if(node.left === null)
+            return node;
+        else
+            return this.findMinNode(node.left);
+    }
 
 
     // remove(data)

@@ -105,7 +105,7 @@ describe("BinarySearchTree", () => {
             expect(bst.root.left.right.right.right).toEqual(null);
         });
 
-        it("correctly removes a node with one child", () => {
+        it("correctly removes a node with one child (right)", () => {
             bst.remove(19);
 
             expect(bst.root.data).toEqual(42);
@@ -115,7 +115,18 @@ describe("BinarySearchTree", () => {
             expect(bst.root.left.right.right.data).toEqual(20);
         });
 
-        it("correctly removed a node wth two children", () => {
+        it("correctly removes a node with one child (left)", () => {
+            bst.insert(13);
+            bst.remove(14);
+
+            expect(bst.root.data).toEqual(42);
+            expect(bst.root.left.data).toEqual(15);
+            expect(bst.root.left.left.data).toEqual(13);
+            expect(bst.root.left.right.data).toEqual(18);
+            expect(bst.root.left.right.right.data).toEqual(19);
+        });
+
+        it("correctly removes a node wth two children", () => {
             bst.remove(15);
 
             expect(bst.root.data).toEqual(42);
@@ -123,6 +134,30 @@ describe("BinarySearchTree", () => {
             expect(bst.root.left.left.data).toEqual(14);
             expect(bst.root.left.right.data).toEqual(19);
             expect(bst.root.left.right.right.data).toEqual(20);
+        });
+
+        it("correctly sets the min node in place of the removed node if has both children with nodes on both sides", () => {
+            bst = new BinarySearchTree();
+            bst.insert(42);
+            bst.insert(20);
+            bst.insert(30);
+            bst.insert(12);
+            bst.insert(30);
+            bst.insert(22);
+            bst.insert(31);
+            bst.insert(32);
+            bst.insert(21);
+            bst.insert(23);
+
+            bst.remove(20);
+
+            expect(bst.root.data).toEqual(42);
+            expect(bst.root.left.data).toEqual(21);
+            expect(bst.root.left.left.data).toEqual(12);
+            expect(bst.root.left.right.data).toEqual(30);
+            expect(bst.root.left.right.left.data).toEqual(22);
+            expect(bst.root.left.right.left.left).toEqual(null);
+            expect(bst.root.left.right.left.right.data).toEqual(23);
         });
     });
 });
