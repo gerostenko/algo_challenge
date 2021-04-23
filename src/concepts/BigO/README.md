@@ -63,5 +63,38 @@ Built in JS methords with O(1) complexity: push(), pop(); primitive math operati
 
 This one is the next fastest algorithm. Logarithmic runtime usually applies to algorithms that divides problems in half every step.
 Typical example: Binary search, which finds a location of an item in a **sorted** array by dividing the input in half on each iteration.
+Note about binary search: It might perform weaker on a smaller scale, however, once the amount of data grows, the performance increases significantly compared to the linear search (for loop).
+
+### O(n) - Leaner time. Complaexity Rank: Fair
+
+Loops are good example o linear algorithms, because the time to perform the operation will be directy connected to the lenght of data structure. Iterating over 100 items will take 10 times more time than iterating over 10 items.
+Example:
+```
+const arrayofFive = new Array(5).fill(1);
+const arrayOfAHunder = new Array(100).fill(1);
+
+function printArray(array){
+    for(let i = 0; i < array.length; i++) {
+        console.log(array[i]);
+    }
+
+printArray(arrayofFive);
+printArray(arrayOfAHunder); //this will take 10 times longer than the previous call
+}
+```
+
+Other examples of linear runtime algos: Find given element in the colleciton, get maximum or minimum value in the array.
+Built-in JS methods with O(n) complexity: shift(), unshift(), splice(), slice(), concat(), indexOf(), forEach(), map(), filter(), reduce()
+
+### O(n log n) - Linearithmic time. Complexity Rank: Close to fair
+
+`O(n log n)` is often confused with `O(log n)`. It is a combination of `O(n)` and `O(log n)` runtime complexities (`O(n * log n)` -> `O(n log n)`)
+Sorting mechanisms that use divie and conquer strategy are Linearithmic, like Merge sort, Quick sort, Heapsort, Timsort.
+
+
+
+
+
+
 
 

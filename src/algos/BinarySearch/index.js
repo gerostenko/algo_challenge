@@ -6,12 +6,11 @@ export function binarySearch(array, target) {
     while(rangeStart <= rangeEnd) {
         let index = Math.floor((rangeStart + rangeEnd) / 2);
 
+        if(array[index] === target) return index;
         if(array[index] > target) {
             rangeEnd = index -1;
-        } else if(array[index] < target) {
-            rangeStart = index + 1;
         } else {
-            return index;
+            rangeStart = index + 1;
         }
     }
     return -1;
