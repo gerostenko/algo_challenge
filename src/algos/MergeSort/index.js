@@ -5,6 +5,9 @@
  *   2. Continue dividing the subsets of data until left with only one element in each array
  *   3. Starting with the single elements sets, merge the subsets so that each merged subset is sorted.
  *   4. Repeat step 3 till end up with sorted set of the same length as the received data set
+ *
+ * Time Complexity: O(n log n)
+ * Space Complexity: O(n)
  */
 
 function mergeTwoArrays(left, right) {
