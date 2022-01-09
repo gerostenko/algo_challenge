@@ -65,7 +65,7 @@ This one is the next fastest algorithm. Logarithmic runtime usually applies to a
 Typical example: Binary search, which finds a location of an item in a **sorted** array by dividing the input in half on each iteration.
 Note about binary search: It might perform weaker on a smaller scale, however, once the amount of data grows, the performance increases significantly compared to the linear search (for loop).
 
-### O(n) - Leaner time. Complaexity Rank: Fair
+### O(n) - Leaner time. Complexity Rank: Fair
 
 Loops are good example o linear algorithms, because the time to perform the operation will be directy connected to the lenght of data structure. Iterating over 100 items will take 10 times more time than iterating over 10 items.
 Example:
